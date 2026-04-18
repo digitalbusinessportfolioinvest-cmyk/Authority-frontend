@@ -1,7 +1,11 @@
+const DEFAULT_API_URL = import.meta.env.PROD
+  ? "https://authoritydx-backend-production.up.railway.app"
+  : "http://localhost:3001";
+
 const API_URL =
   (typeof window !== "undefined" && window.__DX_API_URL__) ||
   import.meta.env.VITE_API_URL ||
-  "http://localhost:3001";
+  DEFAULT_API_URL;
 const TIMEOUT_MS = 60000; // 60s — scans can take time
 
 let _memToken = null;
